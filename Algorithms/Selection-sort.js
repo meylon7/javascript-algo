@@ -1,0 +1,30 @@
+// Selection sort uses the recursion technique. 
+// In the guide below, we are using ascending order. For descending order, 
+// you do the reverse.
+// 1. Given an array, assume that the first element in the array is the smallest.
+// 2. From the other portion of the array, find the minimum value, 
+// and swap it with the first element. 
+// At this point, you have completed the first pass.
+// 3. Repeat the same procedure with the rest of the array comparing the elements 
+// to the right, not the left.
+function selectionSort(arr) {
+    let min;
+    //start passes.
+    for (let i = 0; i < arr.length; i++) {
+        //index of the smallest element to be the ith element.
+        min = i;
+        //Check through the rest of the array for a lesser element
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+        //compare the indexes
+        if (min !== i) {
+            //swap
+            [arr[i], arr[min]] = [arr[min], arr[i]];
+        }
+    }
+    return arr;
+}
+console.log(selectionSort([29, 72, 98, 13, 87, 66, 52, 51, 36]));
